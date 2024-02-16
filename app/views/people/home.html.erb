@@ -1,0 +1,17 @@
+<!-- app/views/people/index.html.erb -->
+<h1>People</h1>
+  <%= turbo_frame_tag :detail_frame do %>
+<ul>
+  <% @people.each do |person| %>
+    <li>
+      <%= link_to person.name, home_people_path(id: person), remote: true, data: { turbo_frame: 'detail' }%>
+    </li>
+  <% end %>
+</ul>
+<%#end%>
+
+<%#= turbo_frame_tag :detail do %>
+<div id="detail_frame">
+    <%= render 'people/detail', detail: @detail %>
+</div>
+<% end %>
